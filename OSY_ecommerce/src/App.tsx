@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import React from 'react';
 import { Layout, Space } from 'antd';
 import { OnButton } from './components/Buttons/Button';
-import { Home } from './pages/home';
+import { Home } from './pages/Home';
 
 
 
