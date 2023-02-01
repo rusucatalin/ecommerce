@@ -8,6 +8,8 @@ export interface IBoxInterface {
   gap?: number;
   textAlign?: "right";
   justifyContent?: "right";
+  flexDirection?: "column" | "row";
+  alignSelf?: "center" | "start" | "end";
 }
 
 export const StyledBox = styled.div(

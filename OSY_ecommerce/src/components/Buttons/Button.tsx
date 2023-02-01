@@ -6,6 +6,5 @@ interface ButtonProps extends IButtonInterface {
 }
 
 export function OnButton({ children, ...rest }: ButtonProps) {
-  console.log(rest);
   return <StyledButton styles={rest}>{children}</StyledButton>;
 }

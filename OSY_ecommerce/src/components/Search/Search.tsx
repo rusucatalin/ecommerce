@@ -1,16 +1,23 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { Input, Space } from "antd";
 import { ISearchInterface, StyledSearch } from "./Searchstyle";
 
-const { Search } = Input;
+// const { Search } = Input;
+interface ISearchProps extends ISearchInterface {
+  enterButton?: ReactNode;
+}
 
-const App: React.FC = () => (
-  <Space direction="vertical">
-    <Search placeholder="input search text" />
-  </Space>
-);
+export const Search = ({ enterButton, ...rest }: ISearchProps) => {
+  return <StyledSearch style={rest} enterButton={enterButton} />;
+};
 
-export { Search };
+// const App: React.FC = () => (
+//   <Space direction="vertical">
+//     <Search placeholder="input search text" />
+//   </Space>
+// );
+
+// export { Search };
 
 // interface SearchProps extends ISearchInterface {
 //   children: ReactNode;
