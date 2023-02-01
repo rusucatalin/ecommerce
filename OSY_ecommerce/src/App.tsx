@@ -1,19 +1,14 @@
-import { useState } from 'react'
-import { MainPage } from './pages/MainPage'
-
-
-
-
+import { useState } from "react";
+import { MainPage } from "./pages/MainPage";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <div className="App">
-    <MainPage/>
-    
+      <MainPage />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
