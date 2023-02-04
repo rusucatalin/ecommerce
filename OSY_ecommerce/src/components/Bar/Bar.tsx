@@ -21,7 +21,7 @@ export function Bar({}) {
   return (
     <Affix offsetTop={50} onChange={(affixed) => console.log(affixed)}>
       <>
-        <Box display="flex" gap={4}>
+        <Box display="flex" gap={6}>
           <Box>
             <OnButton>
               <HomeOutlined></HomeOutlined>
