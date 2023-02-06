@@ -5,10 +5,9 @@ interface ButtonProps extends IButtonInterface {
   children?: ReactNode;
   shape?: "circle";
   href?: string;
+  position?: "relative";
 }
 
-//create offers(like button but with borderRadius style) component
-//create product button offers
 export const OnButton = ({ children, shape, href, ...rest }: ButtonProps) => {
   return (
     <StyledButton styles={rest} shape={shape} href={href}>

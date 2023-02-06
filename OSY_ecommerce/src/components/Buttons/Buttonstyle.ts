@@ -6,6 +6,10 @@ export interface IButtonInterface {
   background?: string;
   shape?: "defaut" | "circle";
   height?: number | string;
+  position?: "relative";
+  justifyContent?: "right" | "left";
+  padding?: number | string;
+  textAlign?: "center" | "right" | "left";
 }
 
 export const StyledButton = styled(Button)(

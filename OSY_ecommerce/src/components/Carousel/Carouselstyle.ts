@@ -11,7 +11,7 @@ export interface ICarouselInterface {
   margin?: number | string;
   borderRadius?: number | string;
   borderColor?: string;
-  display?: "flex" | "block";
+  display?: "flex" | "block" | "inline-block";
   contentStyle?: number | string;
   borderStyle?: string;
 }

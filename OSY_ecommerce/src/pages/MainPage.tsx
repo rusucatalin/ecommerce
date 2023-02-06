@@ -5,11 +5,11 @@ import {
   DesktopOutlined,
   LaptopOutlined,
 } from "@ant-design/icons";
-import { Col, Grid, Row } from "antd";
 import { Bar } from "../components/Bar/Bar";
 import { Box } from "../components/Box/Box";
 import { OnButton } from "../components/Buttons/Button";
 import { Carousel } from "../components/Carousel/Carousel";
+import { Footer } from "../components/Footer/Footer";
 import { Header } from "../components/Header/Header";
 
 const contentStyle: React.CSSProperties = {
@@ -18,6 +18,7 @@ const contentStyle: React.CSSProperties = {
   lineHeight: "160px",
   textAlign: "center",
   background: "#364d79",
+  justifyContent: "right, left",
 };
 
 export function MainPage() {
@@ -46,13 +47,13 @@ export function MainPage() {
             <h3 style={contentStyle}>1</h3>
           </div>
           <div>
-            <h3 style={{ color: "white" }}>2</h3>
+            <h3 style={contentStyle}>2</h3>
           </div>
           <div>
-            <h3 style={{ color: "white" }}>3</h3>
+            <h3 style={contentStyle}>3</h3>
           </div>
           <div>
-            <h3 style={{ color: "white" }}>4</h3>
+            <h3 style={contentStyle}>4</h3>
           </div>
         </Carousel>
       </Box>
@@ -63,6 +64,7 @@ export function MainPage() {
           height={86}
           shape="circle"
           href="https://darwin.md/smartphone_apple-iphone-xr-64gb-white.html"
+          position="relative"
         >
           <AppleOutlined />
         </OnButton>
@@ -96,15 +98,33 @@ export function MainPage() {
             <h3 style={contentStyle}>1</h3>
           </div>
           <div>
-            <h3 style={{ color: "white" }}>2</h3>
+            <h3 style={contentStyle}>2</h3>
           </div>
           <div>
-            <h3 style={{ color: "white" }}>3</h3>
+            <h3 style={contentStyle}>3</h3>
           </div>
           <div>
-            <h3 style={{ color: "white" }}>4</h3>
+            <h3 style={contentStyle}>4</h3>
           </div>
         </Carousel>
+      </Box>
+      <Box display="flex" gap={8} marginLeft={32} padding={32}>
+        <OnButton width={400} height={400}></OnButton>
+        <OnButton width={400} height={400}></OnButton>
+        <OnButton width={400} height={400}></OnButton>
+        <OnButton width={400} height={400}></OnButton>
+      </Box>
+      <Box
+        display="flex"
+        gap={5}
+        borderStyle="solid"
+        borderColor="#d9d9d9"
+        padding={64}
+        borderRadius={6}
+        margin={32}
+      >
+        <Box display="flex" gap={20}></Box>
+        <Footer></Footer>
       </Box>
     </Box>
   );
