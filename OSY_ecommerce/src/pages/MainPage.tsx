@@ -13,6 +13,8 @@ import { OnButton } from "../components/Buttons/Button";
 import { Carousel } from "../components/Carousel/Carousel";
 import { Footer } from "../components/Footer/Footer";
 import { Header } from "../components/Header/Header";
+import { Link } from "react-router-dom";
+import { Image } from "../components/Image/Image";
 
 const contentStyle: React.CSSProperties = {
   height: "160px",
@@ -111,11 +113,54 @@ export function MainPage() {
           </div>
         </Carousel>
       </Box>
-      <Box display="flex" gap={8} marginLeft={32} padding={32}>
-        <OnButton width={400} height={400}></OnButton>
-        <OnButton width={400} height={400}></OnButton>
-        <OnButton width={400} height={400}></OnButton>
-        <OnButton width={400} height={400}></OnButton>
+      <Box
+        display="flex"
+        gap={18}
+        marginLeft={42}
+        padding={32}
+        alignSelf="center"
+      >
+        <div>
+          <a href="https://darwin.md/realme-8-black-6-128-gb-dual.html">
+            <Image
+              preview={false}
+              src="./src/assets/images/rs6.jpg"
+              width={400}
+              height={400}
+              // borderRadius={6}
+            ></Image>
+          </a>
+        </div>
+        <div>
+          <a href="https://darwin.md/realme-8-black-6-128-gb-dual.html">
+            <Image
+              preview={false}
+              src="./src/assets/images/rs6.jpg"
+              width={400}
+              height={400}
+            ></Image>
+          </a>
+        </div>
+        <div>
+          <a href="https://darwin.md/realme-8-black-6-128-gb-dual.html">
+            <Image
+              preview={false}
+              src="./src/assets/images/rs6.jpg"
+              width={400}
+              height={400}
+            ></Image>
+          </a>
+        </div>
+        <div>
+          <a href="https://darwin.md/realme-8-black-6-128-gb-dual.html">
+            <Image
+              preview={false}
+              src="./src/assets/images/rs6.jpg"
+              width={400}
+              height={400}
+            ></Image>
+          </a>
+        </div>
       </Box>
 
       <Box display="flex" gap={8} alignSelf="center" marginLeft={32}>
