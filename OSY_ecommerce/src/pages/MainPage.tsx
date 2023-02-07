@@ -3,6 +3,8 @@ import {
   AppleOutlined,
   CustomerServiceOutlined,
   DesktopOutlined,
+  FacebookOutlined,
+  InstagramOutlined,
   LaptopOutlined,
 } from "@ant-design/icons";
 import { Bar } from "../components/Bar/Bar";
@@ -74,6 +76,7 @@ export function MainPage() {
         <OnButton width={86} height={86} shape="circle">
           <LaptopOutlined />
         </OnButton>
+
         <OnButton width={86} height={86} shape="circle">
           <CustomerServiceOutlined />
         </OnButton>
@@ -114,6 +117,15 @@ export function MainPage() {
         <OnButton width={400} height={400}></OnButton>
         <OnButton width={400} height={400}></OnButton>
       </Box>
+
+      <Box display="flex" gap={8} alignSelf="center" marginLeft={32}>
+        <OnButton width={64} height={64} borderRadius={6}>
+          <InstagramOutlined />
+        </OnButton>
+        <OnButton width={64} height={64} borderRadius={6}>
+          <FacebookOutlined />
+        </OnButton>
+      </Box>
       <Box
         display="flex"
         gap={5}
@@ -123,7 +135,6 @@ export function MainPage() {
         borderRadius={6}
         margin={32}
       >
-        <Box display="flex" gap={20}></Box>
         <Footer></Footer>
       </Box>
     </Box>
