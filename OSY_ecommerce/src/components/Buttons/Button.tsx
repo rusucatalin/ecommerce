@@ -6,11 +6,18 @@ interface ButtonProps extends IButtonInterface {
   shape?: "circle";
   href?: string;
   position?: "relative";
+  onClick?: () => void;
 }
 
-export const OnButton = ({ children, shape, href, ...rest }: ButtonProps) => {
+export const OnButton = ({
+  children,
+  shape,
+  href,
+  onClick,
+  ...rest
+}: ButtonProps) => {
   return (
-    <StyledButton styles={rest} shape={shape} href={href}>
+    <StyledButton styles={rest} shape={shape} href={href} onClick={onClick}>
       {children}
     </StyledButton>
   );

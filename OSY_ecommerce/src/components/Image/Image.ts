@@ -1,6 +1,6 @@
 import { Image } from "antd";
 import styled from "styled-components";
-import { ImageProps } from "antd";
+
 export interface IImageInterface {
   width?: number | string;
   height?: number | string;

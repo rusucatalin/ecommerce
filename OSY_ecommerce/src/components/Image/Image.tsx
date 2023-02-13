@@ -5,6 +5,7 @@ import { IImageInterface, StyledImage } from "./Image";
 interface ImageProps extends IImageInterface {
   children?: ReactNode;
   preview?: boolean;
+  borderRadius?: number | string;
 }
 
 export const Image = ({ children, preview, ...rest }: ImageProps) => {

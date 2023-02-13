@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, Ref, useRef } from "react";
 import { ICarouselInterface, StyledCarousel } from "./Carouselstyle";
 
 interface ICarouselProps extends ICarouselInterface {

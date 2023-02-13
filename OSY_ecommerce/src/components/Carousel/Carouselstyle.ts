@@ -14,6 +14,8 @@ export interface ICarouselInterface {
   display?: "flex" | "block" | "inline-block";
   contentStyle?: number | string;
   borderStyle?: string;
+  width?: string | number;
+  alignSelf?: "center" | "start" | "end";
 }
 
 export const StyledCarousel = styled(Carousel)(

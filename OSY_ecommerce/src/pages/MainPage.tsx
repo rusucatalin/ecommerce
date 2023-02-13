@@ -7,22 +7,23 @@ import {
   InstagramOutlined,
   LaptopOutlined,
 } from "@ant-design/icons";
+import React from "react";
 import { Bar } from "../components/Bar/Bar";
 import { Box } from "../components/Box/Box";
 import { OnButton } from "../components/Buttons/Button";
 import { Carousel } from "../components/Carousel/Carousel";
 import { Footer } from "../components/Footer/Footer";
 import { Header } from "../components/Header/Header";
-import { Link } from "react-router-dom";
 import { Image } from "../components/Image/Image";
 
 const contentStyle: React.CSSProperties = {
   height: "160px",
-  color: "#fff",
+  color: "white",
   lineHeight: "160px",
   textAlign: "center",
   background: "#364d79",
   justifyContent: "right, left",
+  borderRadius: "6px",
 };
 
 export function MainPage() {
@@ -38,31 +39,60 @@ export function MainPage() {
         <Carousel
           autoplay={true}
           height={400}
+          width={1550}
           textAlign="center"
           background="#364d79"
-          padding={100}
-          margin={32}
+          margin={60}
           borderRadius={6}
           borderColor="#d9d9d9"
           display="flex"
           borderStyle="solid"
+          alignSelf="center"
         >
           <div>
-            <h3 style={contentStyle}>1</h3>
+            <a href="https://darwin.md/realme-8-black-6-128-gb-dual.html">
+              <Image
+                preview={false}
+                src="./src/assets/images/asus.webp"
+                height={450}
+                width={1540}
+              ></Image>
+            </a>
           </div>
           <div>
-            <h3 style={contentStyle}>2</h3>
+            <a href="https://darwin.md/realme-8-black-6-128-gb-dual.html">
+              <Image
+                preview={false}
+                src="./src/assets/images/watch.webp"
+                height={450}
+                width={1540}
+              ></Image>
+            </a>
           </div>
           <div>
-            <h3 style={contentStyle}>3</h3>
+            <a href="https://darwin.md/realme-8-black-6-128-gb-dual.html">
+              <Image
+                preview={false}
+                src="./src/assets/images/samsung.webp"
+                height={450}
+                width={1540}
+              ></Image>
+            </a>
           </div>
           <div>
-            <h3 style={contentStyle}>4</h3>
+            <a href="https://darwin.md/realme-8-black-6-128-gb-dual.html">
+              <Image
+                preview={false}
+                src="./src/assets/images/macbook.webp"
+                height={450}
+                width={1540}
+              ></Image>
+            </a>
           </div>
         </Carousel>
       </Box>
 
-      <Box display="flex" gap={8} alignSelf="center" marginLeft={32}>
+      <Box display="flex" gap={28} alignSelf="center" marginLeft={32}>
         <OnButton
           width={86}
           height={86}
@@ -78,7 +108,6 @@ export function MainPage() {
         <OnButton width={86} height={86} shape="circle">
           <LaptopOutlined />
         </OnButton>
-
         <OnButton width={86} height={86} shape="circle">
           <CustomerServiceOutlined />
         </OnButton>
@@ -90,44 +119,81 @@ export function MainPage() {
       <Box>
         <Carousel
           height={400}
+          width={1550}
           textAlign="center"
           background="#364d79"
-          padding={100}
-          margin={32}
+          margin={60}
           borderRadius={6}
           borderColor="#d9d9d9"
           display="flex"
           borderStyle="solid"
+          alignSelf="center"
         >
           <div>
-            <h3 style={contentStyle}>1</h3>
+            <a href="https://darwin.md/realme-8-black-6-128-gb-dual.html">
+              <Image
+                preview={false}
+                src="./src/assets/images/s23.webp"
+                height={450}
+                width={1540}
+              ></Image>
+            </a>
           </div>
           <div>
-            <h3 style={contentStyle}>2</h3>
+            <a href="https://darwin.md/realme-8-black-6-128-gb-dual.html">
+              <Image
+                preview={false}
+                src="./src/assets/images/ipad.webp"
+                height={450}
+                width={1540}
+              ></Image>
+            </a>
           </div>
           <div>
-            <h3 style={contentStyle}>3</h3>
+            <a href="https://darwin.md/realme-8-black-6-128-gb-dual.html">
+              <Image
+                preview={false}
+                src="./src/assets/images/pod.webp"
+                height={450}
+                width={1540}
+              ></Image>
+            </a>
           </div>
           <div>
-            <h3 style={contentStyle}>4</h3>
+            <a href="https://darwin.md/realme-8-black-6-128-gb-dual.html">
+              <Image
+                preview={false}
+                src="./src/assets/images/air.webp"
+                height={450}
+                width={1540}
+              ></Image>
+            </a>
           </div>
         </Carousel>
+        <div>
+          <OnButton onClick={() => {}}>Next</OnButton>
+          <OnButton>Reset</OnButton>
+          <OnButton>Prev</OnButton>
+        </div>
       </Box>
+
       <Box
         display="flex"
-        gap={18}
-        marginLeft={42}
+        gap={10}
         padding={32}
         alignSelf="center"
+        borderStyle="solid"
+        borderColor="#d9d9d9"
+        borderRadius={6}
+        margin={32}
       >
         <div>
           <a href="https://darwin.md/realme-8-black-6-128-gb-dual.html">
             <Image
               preview={false}
               src="./src/assets/images/rs6.jpg"
-              width={400}
-              height={400}
-              // borderRadius={6}
+              width={380}
+              height={380}
             ></Image>
           </a>
         </div>
@@ -136,8 +202,8 @@ export function MainPage() {
             <Image
               preview={false}
               src="./src/assets/images/rs6.jpg"
-              width={400}
-              height={400}
+              width={380}
+              height={380}
             ></Image>
           </a>
         </div>
@@ -146,8 +212,8 @@ export function MainPage() {
             <Image
               preview={false}
               src="./src/assets/images/rs6.jpg"
-              width={400}
-              height={400}
+              width={380}
+              height={380}
             ></Image>
           </a>
         </div>
@@ -156,21 +222,13 @@ export function MainPage() {
             <Image
               preview={false}
               src="./src/assets/images/rs6.jpg"
-              width={400}
-              height={400}
+              width={380}
+              height={380}
             ></Image>
           </a>
         </div>
       </Box>
 
-      <Box display="flex" gap={8} alignSelf="center" marginLeft={32}>
-        <OnButton width={64} height={64} borderRadius={6}>
-          <InstagramOutlined />
-        </OnButton>
-        <OnButton width={64} height={64} borderRadius={6}>
-          <FacebookOutlined />
-        </OnButton>
-      </Box>
       <Box
         display="flex"
         gap={5}
