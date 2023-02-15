@@ -170,11 +170,6 @@ export function MainPage() {
             </a>
           </div>
         </Carousel>
-        <div>
-          <OnButton onClick={() => {}}>Next</OnButton>
-          <OnButton>Reset</OnButton>
-          <OnButton>Prev</OnButton>
-        </div>
       </Box>
 
       <Box

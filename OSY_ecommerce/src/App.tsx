@@ -9,7 +9,7 @@ function App() {
 
       <div>
         <div>
-          <h1>dad</h1>
+          <h1></h1>
         </div>
         <nav>
           <ul>

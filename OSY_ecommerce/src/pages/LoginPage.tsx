@@ -1,12 +1,13 @@
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { OnButton } from "../components/Buttons/Button";
 import {
   useGetUsersByIdMutation,
-  useGetUsersQuery,
-  useLazyGetUsersQuery,
-  useUserLoginMutation,
+  useLoginUsersMutation,
+  // useGetUsersQuery,
+  // useLazyGetUsersQuery,
 } from "../redux-toolkit/slices/usersSlice";
 
 const contentStyle: React.CSSProperties = {
@@ -14,42 +15,30 @@ const contentStyle: React.CSSProperties = {
   color: "white",
   justifyContent: "center",
   alignSelf: "center",
+  alignContent: "center",
+  margin: "0 auto",
 };
 const loginforgot: React.CSSProperties = {
   float: "right",
 };
 
 const Login = () => {
-  const { data, isFetching } = useGetUsersQuery();
-  console.log(data);
-  const [getUsersById, { data: abc }] = useGetUsersByIdMutation();
-  const [userLogin] = useUserLoginMutation();
-  const [test, setTest] = useState<number>(1);
-  console.log(abc);
-  // const [trigger, { data: bac }] = useLazyGetUsersQuery();
-  // console.log(bac);
   const [form] = Form.useForm();
-  const onSubmit = () => {
-    console.log(form.getFieldsValue(true));
-    userLogin(form.getFieldsValue(true));
-  };
-  const getUsers = () => {
-    console.log(test);
 
-    setTest(test + 1);
-    getUsersById(test);
+  const [loginUsers, { data: loginUserData }] = useLoginUsersMutation();
+  const onSubmit = () => {
+    loginUsers(form.getFieldsValue(true));
   };
-  const onFinish = (e: any) => {
-    console.log(e);
-  };
+
   return (
     <div>
       {/* <OnButton onClick={getUsers}>Click</OnButton> */}
       {/* <OnButton onClick={() => trigger()}>Click</OnButton> */}
       <Form
-        onFinish={onFinish}
-        initialValues={{ remember: true }}
+        // onFinish={onFinish}
+        // initialValues={{ remember: true }}
         style={contentStyle}
+        form={form}
       >
         <Form.Item
           name="email"
@@ -72,9 +61,9 @@ const Login = () => {
           ></Input.Password>
         </Form.Item>
         <Form.Item>
-          <Form.Item name="remember" valuePropName="checked" noStyle>
+          {/* <Form.Item name="remember" valuePropName="checked" noStyle>
             <Checkbox>Remember me</Checkbox>
-          </Form.Item>
+          </Form.Item> */}
           <a className="login-form-forgot" href="" style={loginforgot}>
             Forgot password
           </a>
@@ -84,13 +73,13 @@ const Login = () => {
           <Button
             block
             type="primary"
-            htmlType="submit"
+            // htmlType="submit"
             onClick={onSubmit}
             className="login-form-button"
           >
             Log In{" "}
           </Button>
-          Or <a href="">register now!</a>
+          Or <Link to="/register">Register</Link>
         </Form.Item>
       </Form>
     </div>

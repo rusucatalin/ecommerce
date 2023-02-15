@@ -1,12 +1,15 @@
+import { logout, registerReducer } from "./../slices/usersSlice";
 // import { counterReducer } from "../slices/countslice";
 import { configureStore } from "@reduxjs/toolkit";
-import { usersApi } from "../slices/usersSlice";
+import { loginReducer, usersApi } from "../slices/usersSlice";
 
 // ...
 
 export const store = configureStore({
   reducer: {
     [usersApi.reducerPath]: usersApi.reducer,
+    login: loginReducer,
+    register: registerReducer,
   },
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.

@@ -2,7 +2,20 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store/store";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { Action } from "@remix-run/router";
 
+interface LoginResponse {
+  user_id: number;
+  username: string;
+  acces_taken: string;
+}
+
+interface RegUser {
+  email: string;
+  username: string;
+  password: string;
+  confirm_password: string;
+}
 // Define a type for the slice state
 // interface CounterState {
 //   value: number;
@@ -10,33 +23,47 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const usersApi = createApi({
   reducerPath: "usersApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: import.meta.env.VITE_BASE_URL,
+    baseUrl: `${import.meta.env.VITE_BASE_URL}/authen`,
   }),
   tagTypes: ["Users"],
   endpoints: (builder) => ({
-    getUsers: builder.query<void, void>({
-      query: () => `users`,
-      providesTags: ["Users"],
+    loginUsers: builder.mutation<LoginResponse, LoginResponse>({
+      query: (user) => {
+        console.log(user);
+
+        return {
+          url: "/login",
+          method: "POST",
+          body: user,
+        };
+      },
+      invalidatesTags: ["Users"],
     }),
+
+    registerUsers: builder.mutation<RegUser, RegUser>({
+      query: (user) => {
+        return {
+          url: "/register",
+          method: "POST",
+          body: user,
+        };
+      },
+      invalidatesTags: ["Users"],
+    }),
+
     getUsersById: builder.mutation<any, number>({
       query: (id: number) => {
         return `users/${id}`;
       },
       invalidatesTags: ["Users"],
     }),
-    userLogin: builder.mutation<void, { email: string; password: string }>({
-      query: (user) => ({
-        url: "/login",
-        method: "POST",
-        body: user,
-      }),
-    }),
   }),
 });
 export const {
-  useUserLoginMutation,
-  useGetUsersQuery,
-  useLazyGetUsersQuery,
+  useLoginUsersMutation,
+  useRegisterUsersMutation,
+  // useGetUsersQuery,
+  // useLazyGetUsersQuery,
   useGetUsersByIdMutation,
 } = usersApi;
 // Export hooks for usage in functional components, which are
@@ -46,18 +73,63 @@ export const {
 // const initialState: CounterState = {
 //   value: 0,
 // };
+const initialState: LoginResponse = {
+  user_id: 0,
+  username: "",
+  acces_taken: "",
+};
 
-// export const counterSlice = createSlice({
-//   name: "counter",
-//   // `createSlice` will infer the state type from the `initialState` argument
-//   // initialState,
+const initialRegState: RegUser = {
+  email: "",
+  username: "",
+  password: "",
+  confirm_password: "",
+};
 
-//   reducers: {},
-// });
+export const loginSlice = createSlice({
+  name: "users",
+  initialState,
+  reducers: {
+    logout: (state) => {
+      state.acces_taken = "";
+      sessionStorage.removeItem("token");
+    },
+  },
+  extraReducers: (builder) => {
+    builder.addMatcher(
+      usersApi.endpoints.loginUsers.matchFulfilled,
+      (state, { payload }) => {
+        console.log(payload.acces_taken);
+        if (payload.acces_taken) {
+          state.acces_taken = payload.acces_taken;
+          sessionStorage.setItem("token", payload.acces_taken);
+        }
+      }
+    );
+  },
+});
 
-// export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const registerSlice = createSlice({
+  name: "register",
+  initialState: initialRegState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addMatcher(
+      usersApi.endpoints.registerUsers.matchFulfilled,
+      (state, { payload }) => {
+        console.log(payload, state);
+        state.username = payload.username;
+        state.email = payload.email;
+      }
+    );
+  },
+});
+
+export const { logout } = loginSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 // export const selectCount = (state: RootState) => state.counter.value;
 
-// export const counterReducer = counterSlice.reducer;
+export const loginReducer = loginSlice.reducer;
+export const registerReducer = registerSlice.reducer;
+// export const logout = loginSlice.actions;
