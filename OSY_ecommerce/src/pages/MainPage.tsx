@@ -15,6 +15,7 @@ import { Carousel } from "../components/Carousel/Carousel";
 import { Footer } from "../components/Footer/Footer";
 import { Header } from "../components/Header/Header";
 import { Image } from "../components/Image/Image";
+import { Sitemap } from "../components/Sitemap/Sitemap";
 
 const contentStyle: React.CSSProperties = {
   height: "160px",
@@ -234,6 +235,7 @@ export function MainPage() {
         margin={32}
       >
         <Footer></Footer>
+        <Sitemap></Sitemap>
       </Box>
     </Box>
   );

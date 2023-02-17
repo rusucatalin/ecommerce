@@ -1,5 +1,6 @@
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import { Button, Checkbox, Form, Input } from "antd";
+import { Button, Checkbox, Form, Input, notification } from "antd";
+import Password from "antd/es/input/Password";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { OnButton } from "../components/Buttons/Button";
@@ -43,6 +44,7 @@ const Login = () => {
         <Form.Item
           name="email"
           rules={[{ required: true, message: "Please input your username" }]}
+          hasFeedback
         >
           <Input
             prefix={<UserOutlined className="site-form-item-icon" />}
@@ -53,6 +55,7 @@ const Login = () => {
         <Form.Item
           name="password"
           rules={[{ required: true, message: "Please input your password" }]}
+          hasFeedback
         >
           <Input.Password
             prefix={<LockOutlined className="site-form-item-icon" />}
