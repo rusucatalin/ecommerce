@@ -16,6 +16,10 @@ interface RegUser {
   password: string;
   confirm_password: string;
 }
+
+interface ResetPassword {
+  email: string;
+}
 // Define a type for the slice state
 // interface CounterState {
 //   value: number;
@@ -57,11 +61,22 @@ export const usersApi = createApi({
       },
       invalidatesTags: ["Users"],
     }),
+    resetPassword: builder.mutation<ResetPassword, ResetPassword>({
+      query: (user) => {
+        return {
+          url: "/reset",
+          method: "POST",
+          body: user,
+        };
+      },
+      invalidatesTags: ["Users"],
+    }),
   }),
 });
 export const {
   useLoginUsersMutation,
   useRegisterUsersMutation,
+  useResetPasswordMutation,
   // useGetUsersQuery,
   // useLazyGetUsersQuery,
   useGetUsersByIdMutation,
@@ -84,6 +99,9 @@ const initialRegState: RegUser = {
   username: "",
   password: "",
   confirm_password: "",
+};
+const initialResetState: ResetPassword = {
+  email: "",
 };
 
 export const loginSlice = createSlice({
@@ -125,11 +143,34 @@ export const registerSlice = createSlice({
   },
 });
 
+export const resetPasswordSlice = createSlice({
+  name: "reset",
+  initialState: initialResetState,
+  reducers: {
+    setEmail: (state, action: PayloadAction<string>) => {
+      state.email = action.payload;
+    },
+    reset: (state) => {
+      state.email = "";
+    },
+  },
+  extraReducers: (builder) => {
+    builder.addMatcher(
+      usersApi.endpoints.resetPassword.matchFulfilled,
+      (state, { payload }) => {
+        console.log(payload);
+      }
+    );
+  },
+});
+
 export const { logout } = loginSlice.actions;
+// export const { resetReducer } = resetPasswordSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 // export const selectCount = (state: RootState) => state.counter.value;
 
 export const loginReducer = loginSlice.reducer;
 export const registerReducer = registerSlice.reducer;
+
 // export const logout = loginSlice.actions;

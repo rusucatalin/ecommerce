@@ -7,10 +7,7 @@ export function Language() {
   return (
     <Box display="flex" gap={8} justifyContent="right">
       <Box>
-        <OnButton>Magazine</OnButton>{" "}
-        <OnButton>
-          <StyledPhonenumber href="tel:069603066">069603066</StyledPhonenumber>
-        </OnButton>
+        <OnButton>Cart</OnButton>{" "}
       </Box>
       <Box>
         <OnButton>EN</OnButton> <OnButton>RU</OnButton>

@@ -99,21 +99,33 @@ export function MainPage() {
           height={86}
           shape="circle"
           href="https://darwin.md/smartphone_apple-iphone-xr-64gb-white.html"
-          position="relative"
         >
-          <AppleOutlined />
+          <AppleOutlined style={{ fontSize: 50, color: "gray" }} />
+        </OnButton>
+        <OnButton
+          width={86}
+          height={86}
+          shape="circle"
+          href="https://darwin.md/smartphone_apple-iphone-xr-64gb-white.html"
+        >
+          <AndroidOutlined
+            style={{ fontSize: 50, color: "gray", alignItems: "center" }}
+          />
         </OnButton>
         <OnButton width={86} height={86} shape="circle">
-          <AndroidOutlined />
+          <LaptopOutlined
+            style={{ fontSize: 50, color: "gray", alignItems: "center" }}
+          />
         </OnButton>
         <OnButton width={86} height={86} shape="circle">
-          <LaptopOutlined />
+          <CustomerServiceOutlined
+            style={{ fontSize: 50, color: "gray", alignItems: "center" }}
+          />
         </OnButton>
         <OnButton width={86} height={86} shape="circle">
-          <CustomerServiceOutlined />
-        </OnButton>
-        <OnButton width={86} height={86} shape="circle">
-          <DesktopOutlined />
+          <DesktopOutlined
+            style={{ fontSize: 50, color: "gray", alignItems: "center" }}
+          />
         </OnButton>
       </Box>
 

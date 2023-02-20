@@ -7,7 +7,7 @@ export interface IBoxInterface {
   marginLeft?: number | string;
   gap?: number;
   textAlign?: "right" | "center";
-  justifyContent?: "right" | "left" | "space-between";
+  justifyContent?: "right" | "left" | "space-between" | "center";
   flexDirection?: "column" | "row";
   alignSelf?: "center" | "start" | "end";
   backgroundImage?: "string";

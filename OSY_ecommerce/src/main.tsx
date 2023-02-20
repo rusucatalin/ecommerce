@@ -8,6 +8,9 @@ import { Login } from "./pages/LoginPage";
 import { Provider } from "react-redux";
 import { store } from "./redux-toolkit/store/store";
 import { Register } from "./pages/RegisterPage";
+import { Admin } from "./pages/AdminPage";
+import { Forgot } from "./pages/ForgotPassword";
+import { ResetPassword } from "./pages/ResetPassword";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +24,18 @@ const router = createBrowserRouter([
   {
     path: "register",
     element: <Register />,
+  },
+  {
+    path: "forgot",
+    element: <Forgot />,
+  },
+  {
+    path: "reset",
+    element: <ResetPassword />,
+  },
+  {
+    path: "admin",
+    element: <Admin />,
   },
 ]);
 

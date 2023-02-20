@@ -12,6 +12,7 @@ import {
   Select,
 } from "antd";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useRegisterUsersMutation } from "../redux-toolkit/slices/usersSlice";
 const contentStyle: React.CSSProperties = {
   maxWidth: "300px",
@@ -21,10 +22,12 @@ const contentStyle: React.CSSProperties = {
 
 const Register = () => {
   const [form] = Form.useForm();
+  const navigate = useNavigate();
 
   const [registerUsers] = useRegisterUsersMutation();
   const onSubmit = async () => {
     const { password, confirm_password } = await form.validateFields();
+    navigate("/");
 
     if (password === confirm_password) {
       registerUsers(form.getFieldsValue(true));

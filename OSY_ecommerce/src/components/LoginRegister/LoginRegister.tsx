@@ -1,3 +1,9 @@
+import {
+  HomeOutlined,
+  LoginOutlined,
+  LogoutOutlined,
+  UserAddOutlined,
+} from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/hooks";
 import { logout } from "../../redux-toolkit/slices/usersSlice";
@@ -14,21 +20,29 @@ export function LoginRegister() {
     <Box display="flex" gap={8} justifyContent="left">
       <Box>
         <OnButton>
-          <Link to="/">Home</Link>
+          <Link to="/">
+            <HomeOutlined />
+          </Link>
         </OnButton>
       </Box>
       <Box>
         <OnButton>
-          <Link to="/login">Login</Link>
+          <Link to="/login">
+            <LoginOutlined />
+          </Link>
         </OnButton>
       </Box>
       <Box>
         <OnButton>
-          <Link to="/register">Register</Link>
+          <Link to="/register">
+            <UserAddOutlined />
+          </Link>
         </OnButton>
       </Box>
       <Box>
-        <OnButton onClick={handlelogout}>Logout</OnButton>
+        <OnButton onClick={handlelogout}>
+          <LogoutOutlined />
+        </OnButton>
       </Box>
     </Box>
   );

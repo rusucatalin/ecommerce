@@ -1,11 +1,8 @@
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input, notification } from "antd";
-import Password from "antd/es/input/Password";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { OnButton } from "../components/Buttons/Button";
 import {
-  useGetUsersByIdMutation,
   useLoginUsersMutation,
   // useGetUsersQuery,
   // useLazyGetUsersQuery,
@@ -25,10 +22,12 @@ const loginforgot: React.CSSProperties = {
 
 const Login = () => {
   const [form] = Form.useForm();
+  const navigate = useNavigate();
 
   const [loginUsers, { data: loginUserData }] = useLoginUsersMutation();
   const onSubmit = () => {
     loginUsers(form.getFieldsValue(true));
+    navigate("/");
   };
 
   return (
@@ -64,12 +63,7 @@ const Login = () => {
           ></Input.Password>
         </Form.Item>
         <Form.Item>
-          {/* <Form.Item name="remember" valuePropName="checked" noStyle>
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item> */}
-          <a className="login-form-forgot" href="" style={loginforgot}>
-            Forgot password
-          </a>
+          <Link to="/forgot">Forgot password</Link>
         </Form.Item>
 
         <Form.Item>

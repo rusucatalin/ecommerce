@@ -4,6 +4,8 @@ import { SearchProps } from "antd/es/input";
 export interface ISearchInterface {
   width?: number | string;
   height?: number | string;
+  justifyContent?: "right" | "left" | "space-between" | "center";
+  gap?: number;
 }
 
 export const StyledSearch = styled(Input.Search)(
