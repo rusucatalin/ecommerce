@@ -1,3 +1,4 @@
+import { imagesReducer, productsApi } from "./../slices/productSlice";
 import { logout, registerReducer } from "./../slices/usersSlice";
 // import { counterReducer } from "../slices/countslice";
 import { configureStore } from "@reduxjs/toolkit";
@@ -9,14 +10,20 @@ import { productsReducer } from "../slices/productSlice";
 export const store = configureStore({
   reducer: {
     [usersApi.reducerPath]: usersApi.reducer,
+    [productsApi.reducerPath]: productsApi.reducer,
     login: loginReducer,
     register: registerReducer,
     products: productsReducer,
+    images: imagesReducer,
   },
+
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(usersApi.middleware),
+    getDefaultMiddleware().concat([
+      usersApi.middleware,
+      productsApi.middleware,
+    ]),
   // comments: commentsReducer,
   // users: usersReducer,
 });

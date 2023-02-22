@@ -2,6 +2,7 @@ import {
   AndroidOutlined,
   ApiOutlined,
   AppleOutlined,
+  AppstoreOutlined,
   HomeOutlined,
   LaptopOutlined,
   PhoneOutlined,
@@ -9,10 +10,10 @@ import {
   ThunderboltOutlined,
   UnorderedListOutlined,
   UsbOutlined,
-  UserOutlined,
 } from "@ant-design/icons";
 import { Affix, Menu } from "antd";
 import { ReactNode } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Box } from "../Box/Box";
 import { OnButton } from "../Buttons/Button";
 import { Search } from "../Search/Search";
@@ -28,6 +29,7 @@ interface BarProps extends IBarInterface {
 // export function Bar() {return <> <HomeOutlined></HomeOutlined> </>  }
 
 export function Bar({}) {
+  const navigate = useNavigate();
   return (
     <div>
       <>
@@ -43,9 +45,17 @@ export function Bar({}) {
         </Box>
 
         <Menu
+          onClick={({ key }) => {
+            navigate(key);
+          }}
           mode="horizontal"
           style={contentStyle}
           items={[
+            {
+              label: "Products",
+              key: "/products",
+              icon: <AppstoreOutlined />,
+            },
             {
               label: "Smartphone/Tablets",
               key: "Smarthphone/Tablets",
@@ -89,14 +99,18 @@ export function Bar({}) {
   );
 }
 function Menues() {
+  const navigate = useNavigate();
   return (
     <div>
       <Menu
+        onClick={({ key }) => {
+          navigate(key);
+        }}
         items={[
           { label: "Mobile", key: "mobile", type: "group" },
-          { label: "Apple", key: "apple", icon: <AppleOutlined /> },
+          { label: "Apple", key: "/AppleProducts", icon: <AppleOutlined /> },
           { label: "Android", key: "android", icon: <AndroidOutlined /> },
-          { label: "Phone", key: "phone", icon: <PhoneOutlined /> },
+          { label: "Phone", key: "/products", icon: <PhoneOutlined /> },
         ]}
       />
       <Menu

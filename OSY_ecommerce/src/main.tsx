@@ -12,6 +12,7 @@ import { Admin } from "./pages/AdminPage";
 import { Forgot } from "./pages/ForgotPassword";
 import { ResetPassword } from "./pages/ResetPassword";
 import { Products } from "./pages/Products";
+import { AppleProducts } from "./pages/AppleProducts";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
   {
     path: "products",
     element: <Products />,
+  },
+  {
+    path: "appleproducts",
+    element: <AppleProducts />,
   },
 ]);
 

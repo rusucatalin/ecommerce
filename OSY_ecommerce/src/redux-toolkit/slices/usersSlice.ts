@@ -2,12 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store/store";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Action } from "@remix-run/router";
 
 interface LoginResponse {
   user_id: number;
   username: string;
-  acces_taken: string;
+  access_token: string;
 }
 
 interface RegUser {
@@ -91,7 +90,7 @@ export const {
 const initialState: LoginResponse = {
   user_id: 0,
   username: "",
-  acces_taken: "",
+  access_token: "",
 };
 
 const initialRegState: RegUser = {
@@ -109,7 +108,7 @@ export const loginSlice = createSlice({
   initialState,
   reducers: {
     logout: (state) => {
-      state.acces_taken = "";
+      state.access_token = "";
       sessionStorage.removeItem("token");
     },
   },
@@ -117,10 +116,10 @@ export const loginSlice = createSlice({
     builder.addMatcher(
       usersApi.endpoints.loginUsers.matchFulfilled,
       (state, { payload }) => {
-        console.log(payload.acces_taken);
-        if (payload.acces_taken) {
-          state.acces_taken = payload.acces_taken;
-          sessionStorage.setItem("token", payload.acces_taken);
+        console.log(payload.access_token);
+        if (payload.access_token) {
+          state.access_token = payload.access_token;
+          sessionStorage.setItem("token", payload.access_token);
         }
       }
     );

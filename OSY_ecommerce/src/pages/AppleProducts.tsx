@@ -14,7 +14,7 @@ import {
 import "../global.css";
 import Title from "antd/es/typography/Title";
 
-function Products() {
+function AppleProducts() {
   const { data: products, error, isLoading } = useGetProductsQuery();
 
   const navigate = useNavigate();
@@ -88,4 +88,4 @@ function Products() {
   );
 }
 
-export { Products };
+export { AppleProducts };
